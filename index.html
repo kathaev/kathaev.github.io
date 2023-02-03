@@ -2,14 +2,26 @@
 <html>
 	<head>
 		<link rel='stylesheet' href='style.css'/>
+		<link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+		<script defer src="https://pyscript.net/latest/pyscript.js"></script>
 	</head>
 	<body>
-    		<div class="login">
-			<h1>Youtube to MP3</h1>
-			<form method="post">
-	    			<input type="text" name="u" placeholder="hhtp://youtu.be/" required="required" />
-	    			<button type="submit" class="btn btn-primary btn-block btn-large">Get 🚀</button>
-			</form>
-    		</div>
+		<div class="login">
+		<h1>Youtube to MP3</h1>
+		<form method="post">
+			<input type="text" name="u" placeholder="http://youtu.be/" required="required" />
+			<button type="button" class="btn btn-primary btn-block btn-large">Get 🚀</button>
+		</form>
+		</div>
+		<py-script>
+			print('Hello, World!')
+		</py-script>
+		<script>
+			document.addEventListener('DOMContentLoaded', () => {
+				document.querySelector('button').addEventListener('onClick', () => {
+					let yt_document.querySelector('input').textContent
+				});
+			});
+		</script>
 	</body>
 </html>
