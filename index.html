@@ -17,14 +17,6 @@
 			- os
 			- pytube3
 		  </py-env>
-		<script>
-			let yt;
-			document.addEventListener('DOMContentLoaded', () => {
-				document.querySelector('button').addEventListener('onClick', () => {
-					yt = document.querySelector('input').textContent
-				});
-			});
-		</script>
 		<py-script>
 			from js import yt
 			from pytube import YouTube
@@ -52,5 +44,13 @@
 
 			print(f"Done. File saved as {new_file}")
 		</py-script>
+		<script>
+			let yt;
+			document.addEventListener('DOMContentLoaded', () => {
+				document.querySelector('button').addEventListener('onClick', () => {
+					yt = document.querySelector('input').textContent
+				});
+			});
+		</script>
 	</body>
 </html>
