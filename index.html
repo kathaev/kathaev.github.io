@@ -22,7 +22,7 @@
 			import os
 			
 			def convert():
-				yt = Element('Inputfield').element.innerText
+				yt = Element('Inputfield').element.value
 
 				try:
 					video = yt.streams.filter(only_audio=True).first()
