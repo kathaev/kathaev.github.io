@@ -13,9 +13,10 @@
 			<button type="button" class="btn btn-primary btn-block btn-large">Get 🚀</button>
 		</form>
 		</div>
-		<py-config>
-			packages = ["os", "pytube"]
-		  </py-config>
+		<py-env>
+			- os
+			- pytube
+		  </py-env>
 		<script>
 			document.addEventListener('DOMContentLoaded', () => {
 				document.querySelector('button').addEventListener('onClick', () => {
