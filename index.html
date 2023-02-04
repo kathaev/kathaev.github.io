@@ -9,8 +9,8 @@
 		<div class="login">
 		<h1>Youtube to MP3</h1>
 		<form method="post">
-			<input type="text" name="u" placeholder="http://youtu.be/" required="required" />
-			<button type="button" class="btn btn-primary btn-block btn-large">Get 🚀</button>
+			<input type="text"  id='Inputfield' name="u" placeholder="http://youtu.be/" required="required" />
+			<button py-click="convert()" type="button" class="btn btn-primary btn-block btn-large">Get 🚀</button>
 		</form>
 		</div>
 		<py-env>
@@ -18,31 +18,33 @@
 			- pytube3
 		  </py-env>
 		<py-script>
-			from js import yt
 			from pytube import YouTube
 			import os
 			
-			try:
-				video = yt.streams.filter(only_audio=True).first()
-			except:
-				print("Connection Error")
+			def convert():
+				yt = Element('Inputfield').element.innerText
 
-			# set the destination path to browser downloads
-			destination = os.path.expanduser("~/Downloads")
-			
-			# download the file in the browser
-			video.download(output_path=destination)
+				try:
+					video = yt.streams.filter(only_audio=True).first()
+				except:
+					print("Connection Error")
 
-			# get the file name
-			out_file = video.default_filename
+				# set the destination path to browser downloads
+				destination = os.path.expanduser("~/Downloads")
+				
+				# download the file in the browser
+				video.download(output_path=destination)
+
+				# get the file name
+				out_file = video.default_filename
 
 
-			# convert to mp3
-			base, ext = os.path.splitext(out_file)
-			new_file = base + '.mp3'
-			os.rename(out_file, new_file)
+				# convert to mp3
+				base, ext = os.path.splitext(out_file)
+				new_file = base + '.mp3'
+				os.rename(out_file, new_file)
 
-			print(f"Done. File saved as {new_file}")
+				print(f"Done. File saved as {new_file}")
 		</py-script>
 		<script>
 			let yt;
