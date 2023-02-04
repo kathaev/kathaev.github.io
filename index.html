@@ -18,9 +18,10 @@
 			- pytube3
 		  </py-env>
 		<script>
+			let yt;
 			document.addEventListener('DOMContentLoaded', () => {
 				document.querySelector('button').addEventListener('onClick', () => {
-					let yt = document.querySelector('input').textContent
+					yt = document.querySelector('input').textContent
 				});
 			});
 		</script>
