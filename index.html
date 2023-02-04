@@ -13,9 +13,9 @@
 			<button type="button" class="btn btn-primary btn-block btn-large">Get 🚀</button>
 		</form>
 		</div>
-		<py-script>
-			print('Hello, World!')
-		</py-script>
+		<py-config>
+			packages = ["os", "pytube"]
+		  </py-config>
 		<script>
 			document.addEventListener('DOMContentLoaded', () => {
 				document.querySelector('button').addEventListener('onClick', () => {
@@ -23,5 +23,32 @@
 				});
 			});
 		</script>
+		<py-script>
+			from js import yt
+			from pytube import YouTube
+			import os
+			
+			try:
+				video = yt.streams.filter(only_audio=True).first()
+			except:
+				print("Connection Error")
+
+			# set the destination path to browser downloads
+			destination = os.path.expanduser("~/Downloads")
+			
+			# download the file in the browser
+			video.download(output_path=destination)
+
+			# get the file name
+			out_file = video.default_filename
+
+
+			# convert to mp3
+			base, ext = os.path.splitext(out_file)
+			new_file = base + '.mp3'
+			os.rename(out_file, new_file)
+
+			print(f"Done. File saved as {new_file}")
+		</py-script>
 	</body>
 </html>
